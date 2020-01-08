@@ -1,5 +1,5 @@
 {
-  "name": "svelte-app",
+  "name": "hackernews-svelte",
   "version": "1.0.0",
   "devDependencies": {
     "cross-env": "^5.2.0",

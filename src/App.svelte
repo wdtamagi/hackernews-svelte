@@ -1,11 +1,14 @@
 <script>
-	export let name;
+  import Header from "./Header.svelte";
 </script>
 
 <style>
-	h1 {
-		color: purple;
-	}
+  div {
+    width: 85%;
+    margin: 0 auto;
+  }
 </style>
 
-<h1>Hello {name}!</h1>
+<div>
+  <Header />
+</div>
