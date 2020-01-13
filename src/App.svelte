@@ -1,5 +1,6 @@
 <script>
   import Header from "./Header.svelte";
+  import LinkList from "./LinkList.svelte";
 </script>
 
 <style>
@@ -11,4 +12,5 @@
 
 <div>
   <Header />
+  <LinkList />
 </div>
