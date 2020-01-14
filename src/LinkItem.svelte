@@ -1,9 +1,15 @@
 <script>
   export let item;
+  export let index;
 </script>
 
 <style>
-  /* your styles go here */
+  .itemWrapper {
+    list-style-type: none;
+    margin: 0 0.5rem;
+    color: #828282;
+    height: 3rem;
+  }
 </style>
 
-<li>{item.title} ({item.url})</li>
+<li class="itemWrapper">{index}. {item.title} ({item.url})</li>

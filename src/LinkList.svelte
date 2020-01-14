@@ -14,11 +14,15 @@
 </script>
 
 <style>
-  /* your styles go here */
+  .linkList {
+    background-color: #f6f6ef;
+    margin: 0;
+    padding: 0;
+  }
 </style>
 
-<ul>
-  {#each items as item}
-    <LinkItem {item} />
+<ul class="linkList">
+  {#each items as item, index}
+    <LinkItem {index} {item} />
   {/each}
 </ul>
