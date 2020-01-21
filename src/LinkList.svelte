@@ -1,16 +1,49 @@
 <script>
   import LinkItem from "./LinkItem.svelte";
 
-  let items = [
-    {
-      title: "test",
-      url: "abc"
-    },
-    {
-      title: "teste1",
-      url: "cde"
+  import { getClient, query } from "svelte-apollo";
+  import { gql } from "apollo-boost";
+
+  const client = getClient();
+  const FEED_QUERY = gql`
+    query FeedQuery($first: Int, $skip: Int, $orderBy: LinkOrderByInput) {
+      feed(first: $first, skip: $skip, orderBy: $orderBy) {
+        links {
+          id
+          createdAt
+          url
+          description
+          postedBy {
+            id
+            name
+          }
+          votes {
+            id
+            user {
+              id
+            }
+          }
+        }
+        count
+      }
     }
-  ];
+  `;
+
+  const _getQueryVariables = () => {
+    const isNewPage = true;
+    const pageParam = 1;
+
+    const skip = 0;
+    const first = 100;
+    const orderBy = "createdAt_DESC";
+    return { first, skip, orderBy };
+  };
+
+  const links = query(client, {
+    query: FEED_QUERY,
+    variables: _getQueryVariables()
+  });
+  console.log("links", links);
 </script>
 
 <style>
@@ -21,8 +54,14 @@
   }
 </style>
 
-<ul class="linkList">
-  {#each items as item, index}
-    <LinkItem {index} {item} />
-  {/each}
-</ul>
+{#await $links}
+  Loading...
+{:then result}
+  <ul class="linkList">
+    {#each result.data.feed.links as link, index}
+      <LinkItem {index} {link} />
+    {/each}
+  </ul>
+{:catch error}
+  Error: {error}
+{/await}

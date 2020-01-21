@@ -1,5 +1,5 @@
 <script>
-  export let item;
+  export let link;
   export let index;
 </script>
 
@@ -12,4 +12,4 @@
   }
 </style>
 
-<li class="itemWrapper">{index}. {item.title} ({item.url})</li>
+<li class="itemWrapper">{index}. {link.description} ({link.url})</li>
