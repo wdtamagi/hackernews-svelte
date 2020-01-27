@@ -1,5 +1,5 @@
 <script>
-  // your script goes here
+  import { Link } from "svelte-routing";
 </script>
 
 <style>
@@ -39,13 +39,12 @@
 </style>
 
 <div>
-  <a class="mainLink" href="javascript:void(0)">Hacker News</a>
-  <a class="normalLink" href="javascript:void(0)">new</a>
+  <Link class="mainLink" to="/">Hacker News</Link>
+  <Link class="normalLink" to="/">new</Link>
   <span>|</span>
-  <a class="normalLink" href="javascript:void(0)">top</a>
+  <Link class="normalLink" to="/top">top</Link>
   <span>|</span>
-  <a class="normalLink" href="javascript:void(0)">search</a>
+  <Link class="normalLink" to="/search">search</Link>
   <span>|</span>
-  <a class="normalLink" href="javascript:void(0)">submit</a>
-  <a class="loginLink" href="javascript:void(0)">login</a>
+  <Link class="loginLink" to="/login">login</Link>
 </div>
