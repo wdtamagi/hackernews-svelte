@@ -4,6 +4,7 @@
   import { setClient } from "svelte-apollo";
   import Header from "./components/Header.svelte";
   import LinkList from "./components/LinkList.svelte";
+  import Login from "./features/Login.svelte";
 
   const client = new ApolloClient({ uri: "http://localhost:4000" });
   setClient(client);
@@ -24,7 +25,7 @@
     <Route path="new/:page" component={LinkList} />
     <Route path="top" component={LinkList} />
     <Route path="search" component={LinkList} />
-    <Route path="login" component={LinkList} />
+    <Route path="login" component={Login} />
     <Route path="create" component={LinkList} />
   </Router>
 </div>
