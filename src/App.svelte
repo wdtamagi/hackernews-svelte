@@ -2,9 +2,9 @@
   import { Router, Route } from "svelte-routing";
   import ApolloClient from "apollo-boost";
   import { setClient } from "svelte-apollo";
-  import Header from "./components/Header.svelte";
+  import Header from "./features/header/Header.svelte";
   import LinkList from "./components/LinkList.svelte";
-  import Login from "./features/Login.svelte";
+  import Login from "./features/login/Login.svelte";
 
   const client = new ApolloClient({ uri: "http://localhost:4000" });
   setClient(client);
