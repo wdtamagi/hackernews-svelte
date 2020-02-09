@@ -2,11 +2,9 @@
   import { link } from "svelte-routing";
 
   const authToken = localStorage.getItem("auth-token");
-  console.log(authToken);
 
   const logout = () => {
-    localStorage.removeItem(AUTH_TOKEN);
-    history.push(`/`);
+    localStorage.removeItem("auth-token");
   };
 </script>
 
@@ -64,7 +62,7 @@
   {/if}
   <div class="loginGroup">
     {#if authToken}
-      <div class="loginLink" on:click={logout}>logout</div>
+      <a class="loginLink" on:click={logout} href="/">logout</a>
     {:else}
       <a class="loginLink" href="/login" use:link>login</a>
     {/if}
