@@ -18,12 +18,14 @@
   `;
   async function signIn() {
     try {
-      await mutate(client, {
+      const result = await mutate(client, {
         mutation: LOGIN_MUTATION,
         variables: { email, password }
       });
+      localStorage.setItem("auth-token", result.data.login.token);
+      window.location.href = "/";
     } catch (error) {
-      // TODO
+      console.log(error);
     }
   }
 

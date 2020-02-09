@@ -23,12 +23,14 @@
   `;
   async function signUp() {
     try {
-      await mutate(client, {
+      const result = await mutate(client, {
         mutation: SIGNUP_MUTATION,
         variables: { email, password, name }
       });
+      localStorage.setItem("auth-token", result.data.signup.token);
+      window.location.href = "/";
     } catch (error) {
-      // TODO
+      console.log(error);
     }
   }
 
